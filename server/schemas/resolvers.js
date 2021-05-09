@@ -3,7 +3,7 @@ const { User, Book} = require('../models');
 const { signToken} = require('../utils/auth');
 
 
-const resoslvers = {
+const resolvers = {
 
 Query: {
         me: async (parent, args, context) => {

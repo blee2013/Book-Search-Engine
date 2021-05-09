@@ -20,7 +20,7 @@ const server = new ApolloServer({
 });
 
 //Apollo and Express Integration
-server.appMiddleware({ app });
+server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
