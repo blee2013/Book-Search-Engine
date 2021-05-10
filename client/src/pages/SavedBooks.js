@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 
 // import { getMe, deleteBook } from '../utils/API';
@@ -34,7 +34,7 @@ const SavedBooks = () => {
     }
 
     try {
-      const response = await deleteBook({
+      const { data } = await deleteBook({
         variables: { bookId },
         });
 
