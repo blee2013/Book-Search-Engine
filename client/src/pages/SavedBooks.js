@@ -11,7 +11,7 @@ import { REMOVE_BOOK } from '../utils/mutations';
 
 const SavedBooks = () => {
 
-  const [deleteBook, { error } ] = useMutation(REMOVE_BOOK);
+  const [deleteBook,] = useMutation(REMOVE_BOOK);
 
   const { loading, data } = useQuery(GET_ME);
 
@@ -34,7 +34,7 @@ const SavedBooks = () => {
     }
 
     try {
-      const { data } = await deleteBook({
+      const myData = await deleteBook({
         variables: { bookId },
         });
 
