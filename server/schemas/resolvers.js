@@ -19,12 +19,15 @@ Query: {
 },
 
 Mutation: {
+    //new user and token
     addUser: async (parent, args) => {
         const user = await User.create(args);
         const token = signToken(user);
         
         return {token, user};
     },  
+
+    //login
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -41,6 +44,7 @@ Mutation: {
       const token = signToken(user);
       return { token, user };
     },
+    //save the book
     saveBook: async (parent, args, context) => {
         if (context.user) {
             const updateUser = await User.findByIdAndUpdate(
@@ -54,7 +58,7 @@ Mutation: {
 
         throw new AuthenticationError('You need to be logged in!');
     },
-
+//remove the book
     removeBook: async (parent, args, context) => {
         if (context.user) {
             const updatedUser = await User.findOneAndUpdate(
